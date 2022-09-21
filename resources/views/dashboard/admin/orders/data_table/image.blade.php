@@ -1,0 +1,1 @@
+<img src="{{ $order->id }}" width="70">

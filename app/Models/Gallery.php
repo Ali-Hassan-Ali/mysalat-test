@@ -12,6 +12,7 @@ class Gallery extends Model
     protected $guarded = [];
 
     protected $appends  = ['image_path'];
+    protected $hidden   = ['apartment_id'];
 
     // protected $casts = ['banner_id' => 'integer'];
 

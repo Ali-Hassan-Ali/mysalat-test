@@ -13,6 +13,8 @@ class Gallery extends Model
 
     protected $appends  = ['image_path'];
 
+    protected $casts = ['banner_id' => 'integer'];
+
      //attributes----------------------------------
     public function getImagePathAttribute()
     {

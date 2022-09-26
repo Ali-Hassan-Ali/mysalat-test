@@ -16,10 +16,11 @@ class CreateApartmentsTable extends Migration
         Schema::create('apartments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('price');
             $table->string('location');
+            $table->text('description')->nullable();
 
             $table->foreignIdFor(\App\Models\Banner::class)->nullable();
-            $table->foreignIdFor(\App\Models\ProductCategory::class)->nullable();
             $table->timestamps();
         });
     }

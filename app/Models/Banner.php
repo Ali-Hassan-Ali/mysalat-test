@@ -17,7 +17,7 @@ class Banner extends Model
                            'payment',
                            'package',
                            'categorey_products',
-                           'apartment_category',
+                           'apartments',
                            'makeups',
                            'videos',
                            'has_favored'];
@@ -35,11 +35,11 @@ class Banner extends Model
 
     }//end of get image path
 
-    public function getApartmentCategoryAttribute()
+    public function getApartmentsAttribute()
     {
         if (request()->id == 4) {
-            
-            return ProductCategory::where('slug', 'apartments')->with('apartments')->get();
+
+            return Apartment::where('banner_id', $this->id)->get();
 
         } else {
             

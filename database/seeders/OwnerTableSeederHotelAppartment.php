@@ -30,37 +30,28 @@ class OwnerTableSeederHotelAppartment extends Seeder
 
             $categoreysApartments = ['مجمع النصر السكني','مجمع الرواد السكني','مجمع الرشيد السكني'];
 
-            foreach ($categoreysApartments as $catApartments) {
-                
-                $CateApartmentId = \App\Models\ProductCategory::create([
-                    'name' => $catApartments,
-                    'slug' => 'apartments',
+            $apartments = ['شقة رقم', 'شقة رقم', 'شقة رقم'];
+
+            foreach ($apartments as $apartments) {
+
+                $ApartmentId = \App\Models\Apartment::create([
+                    'name'                => $apartments,
+                    'description'         => 'وصف الشقة',
+                    'price'               => '410',
+                    'location'            => 'location',
+                    'banner_id'           => $onner->id,
                 ]);
 
-                $apartments = ['شقة رقم', 'شقة رقم', 'شقة رقم'];
+                $interiors = ['صور شقق مفروشة 1','صور شقق مفروشة 2','صور شقق مفروشة 3','صور شقق مفروشة 4'];
 
-                foreach ($apartments as $apartments) {
+                foreach ($interiors as $interior) {
 
-                    $ApartmentId = \App\Models\Apartment::create([
-                        'name'                => $apartments,
-                        'location'            => 'location',
-                        'product_category_id' => $CateApartmentId->id,
-                        'banner_id'           => $onner->id,
-                    ]);
-
-                    $interiors = ['صور شقق مفروشة 1','صور شقق مفروشة 2','صور شقق مفروشة 3','صور شقق مفروشة 4'];
-
-                    foreach ($interiors as $interior) {
-
-                        \App\Models\Gallery::create([
-                            'title'        => $interior,
-                            'apartment_id' => $ApartmentId->id,
-                        ]);            
-                        
-                    }//end of foreach
-
-                }//end of each
-
+                    \App\Models\Gallery::create([
+                        'title'        => $interior,
+                        'apartment_id' => $ApartmentId->id,
+                    ]);            
+                    
+                }//end of foreach
 
             }//end of each
 

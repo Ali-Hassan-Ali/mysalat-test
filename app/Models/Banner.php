@@ -39,7 +39,7 @@ class Banner extends Model
     {
         if (request()->id == 4) {
 
-            return Apartment::where('banner_id', $this->id)->get();
+            return Apartment::where('banner_id', $this->id)->with('images')->get();
 
         } else {
             

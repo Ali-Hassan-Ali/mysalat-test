@@ -26,6 +26,7 @@ class OrderController extends Controller
             'token'             => ['required'],
             'banner_id'         => ['required'],
             'user_id'           => ['required'],
+            'apartment_id'      => ['nullable'],
         ]);
 
         if ($validator->fails()) {

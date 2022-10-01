@@ -52,6 +52,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('order_statuses_id')->constrained()->onDelete('cascade')->default(2);
             $table->foreignId('banner_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignIdFor(\App\Models\Apartment::class)->nullable();
             $table->timestamps();
         });
     }
